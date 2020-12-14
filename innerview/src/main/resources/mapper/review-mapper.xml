@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="review">
+
+<!-- 댓글 입력하기 -->
+<insert id="insert" parameterType="reviewVO">
+insert into review values (#{rNO},#{rTitle},#{rContent},#{rScore},#{rCount},#{uID},now(),#{image},#{iCode})<!-- rCount > 좋아요수 컬럼내용 변경 -->
+</insert>
+
+<!-- 댓글 삭제하기 -->
+<delete id="delete" parameterType="reviewVO">
+delete from review where rNO = #{rNO}
+</delete>
+
+<!-- 댓글 수정하기 -->
+<update id="update" parameterType="reviewVO">
+update review set rTitle = #{rTitle} where rNO = #{rNO}
+</update>
+
+
+<!-- 댓글 불러오기 -->
+<select id="one" parameterType="reviewVO" resultType="reviewVO">
+select * from review where ﻿rNO = #{﻿rNO}
+</select>
+
+
+<!-- 댓글목록 불러오기 -->
+<select id="list" resultType="reviewVO">
+select * from review order by rNO desc
+<!-- orderby desc -->
+</select>
+
+
+
+<select id="listno" resultType="reviewVO">
+select count(*) from review <!-- 리스트 갯수 카운트 --><!-- SELECT COUNT(*) FROM review -->
+</select>
+
+<!-- 각 기능의 sql 구문정의 -->
+<!-- 아이템 코드에 맞는 리뷰 출력 -->
+
+<select resultType="reviewVO" parameterType="String" id="itemReview">select * from review where iCode = #{iCode} </select>
+
+
+</mapper>

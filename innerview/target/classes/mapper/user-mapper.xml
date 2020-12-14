@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="user">
+<insert id="create" parameterType="userVO">
+	insert into user values(#{uID},#{uPW},#{uName},#{uTel},#{uEmail},#{uBirth},#{uAddress},#{uGender},#{uInterest})
+</insert>
+
+<select id="checkID" parameterType="String" resultType="Integer">
+	select count(*) uID from user where uID = #{uID}
+</select>
+
+<select id="login" parameterType="String" resultType="String">
+	select uPW from user where uID = #{uID}
+</select>
+
+<update id="updatePW">
+	update user set uPW = #{uPW} where uID = #{uID}
+</update>
+
+<delete id="delete" parameterType="String" >
+	delete from pay where uID = #{uID}
+</delete>
+
+</mapper>

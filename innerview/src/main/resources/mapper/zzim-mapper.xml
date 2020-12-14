@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 이름정의 -->
+<mapper namespace="zzim">
+<!-- 각 기능의 sql 구문정의 -->
+
+<!-- parameterType="입력값" resultType="출력값" -->
+<!-- 상품에 대한 찜 출력 -->
+<select id="one" parameterType="zzimVO" resultType="zzimVO">	
+	select * from zzim where iCode = #{iCode} and uID = #{uID}
+</select>
+
+<!-- 찜DB 생성 -->
+<insert id="insert" parameterType="zzimVO">
+insert into zzim values(#{zCode}, #{iCode}, #{uID})
+</insert>
+
+<!-- 찜DB 삭제 -->
+<delete id="delete" parameterType="zzimVO">
+	delete from zzim where iCode = #{iCode} and uID = #{uID}
+</delete>
+
+</mapper>

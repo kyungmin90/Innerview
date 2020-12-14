@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 이름정의 -->
+<mapper namespace="item">
+<!-- 각 기능의 sql 구문정의 -->
+<!-- $보다 #이 더 유용하다. -->
+<insert id="insert" parameterType="itemVO">
+insert into item values(#{iCode}, #{iTitle}, #{iPrice}, #{iManufac}, #{iField1}, #{iField2}, #{iIngredient1}, #{iComponent1}, #{iIngredient2}, #{iComponent2}, #{iImage}, #{iContent}, #{iGrade})
+</insert>
+
+<!-- parameterType="입력값" resultType="출력값" -->
+<!-- 제품 출력 -->
+<select id="one" parameterType="String" resultType="itemVO">	
+	select * from item where iCode = #{iCode}
+</select>
+
+<!-- 같은 분야 제품 리스트 출력 -->
+<select id="list" parameterType= "String" resultType="itemVO">
+	select * from item where iField1 = #{iField1} order by iGrade DESC
+</select>
+
+<!-- 추천 비교할 제품을 주 성분을 기준해서 가져오기 -->
+<select id="recommend" parameterType="String" resultType="recommendVO">
+	select iCode, iPrice, iImage, iComponent1, iComponent2, iGrade from item where iIngredient1 = #{iIngredient1}
+</select>
+
+
+<delete id="delete" parameterType="itemVO">
+	delete from item where iCode = #{iCode}
+</delete>
+
+<update id="update" parameterType="itemVO">
+	update item set iContent = #{iContent} where iCode = #{iCode}
+</update>
+
+
+
+</mapper>

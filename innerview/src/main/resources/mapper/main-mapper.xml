@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="main">
+
+
+	<!-- 메인화면 카테고리 랭킹 전환 ajax -->
+				<!-- 입력값                    반환값 -->
+	<select id="category" parameterType="String" resultType="mainVO">
+												<!-- 평점 내림차순 -->
+		select * from item where iField1 = #{iField1} order by iGrade DESC 
+	</select>
+
+
+
+
+	<!-- 상품 검색 -->
+	<select id="search" parameterType="String" resultType="mainVO">
+	<!-- 검색 입력 값으로 item 테이블의 각 컬럼에서 찾아 select -->
+	<!-- CONCAT () 안의 문자열 합쳐줌 %검색어% -->
+		select * from item where 
+		iTitle like CONCAT('%', #{searchInput}, '%') or 
+		iManufac like CONCAT('%', #{searchInput}, '%') or 
+		iField1 like CONCAT('%', #{searchInput}, '%') or 
+		iField2 like CONCAT('%', #{searchInput}, '%') or 
+		iIngredient1 like CONCAT('%', #{searchInput}, '%') or 
+		iIngredient2 like CONCAT('%', #{searchInput}, '%')
+	</select>
+
+
+	<!-- 로그인한 유저 생년월일 -->
+	<select id="myage" resultType="String" >
+	select uBirth from user where uID = #{uID}
+	</select>
+
+	<!-- 상품번호를 가지고 각 상품 리뷰 작성자의 생년월일 -->
+	<select id="age" resultType="algoVO" >
+	select rv.uID, us.uBirth from review rv join user us on rv.uID = us.uID where rv.iCode = #{iCode}
+	</select>
+
+	<!-- 아이템사이즈 = 상품코드 item 컬럼수 세기-->
+	<select id="itemsize" resultType="Integer" >
+	select count(*) from item
+	</select>
+   
+	<!-- 상품 평점 가져옴 -->
+	<select id="igrade" resultType="double">
+    select iGrade from item where iCode = #{iCode}
+	</select>
+	
+	<!-- 로그인시 메인 고정 추천상품 리스트-->
+	<select id="list" parameterType="Integer" resultType="mainVO">
+	select * from item where iCode = #{iCode}
+	</select>
+
+
+</mapper>

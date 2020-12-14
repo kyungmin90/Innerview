@@ -1,0 +1,68 @@
+/* 경민 CSS */
+#btn1, #btn2, #btn3, #btn4, #btn5, #btn6{
+	 border: 1px solid skyblue;
+	 background-color: rgba(0,0,0,0);
+	 font-size: 13px;
+	margin-left: -5px;
+	width: 75px;
+}
+#btn1, #btn3, #btn5{
+	background-color: rgb(11,162,160);
+	color: white;
+}
+#btn1{
+	border-radius: 10px 0px 0px 10px;
+}
+#btn6{
+	border-radius: 0px 10px 10px 0px;
+}
+
+#logout{
+	border-radius: 10px 10px 10px 10px;
+	border: 1px solid white;
+	background-color: rgb(11,162,160);
+	color: white;
+}
+
+
+.floating {
+	position:absolute; 
+	right: 50%; 
+	top: 180px; 
+	margin-right: -900px; 
+	text-align:center; 
+	width: 200px; 
+	border: 1px solid lightgray;
+	border-radius: 10px 10px 10px 10px;
+	background-color: rgb(182,220,204);
+	}
+
+.lately{
+	width: 180px;
+	margin: 0px auto;
+	margin-bottom:7px;
+	border-radius: 10px 10px 10px 10px;
+	background-color: white;
+}
+
+/*상품 디테일 CSS*/
+.IDbtn {
+	width: 100px;
+	height: 50px;
+	margin-left: -3px;
+	background-color: rgb(11,162,160);
+	border: 1px solid white;
+	color: white;
+	font-weight: bold;
+}
+
+.IDtb {
+	text-align: left;
+	margin: 0px auto;
+	font-weight: bold;
+	width: 400px;
+}
+
+
+
+

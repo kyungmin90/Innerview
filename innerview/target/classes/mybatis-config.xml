@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<!-- Main 경민 -->
+   <typeAliases>
+      <typeAlias type="com.innerview.mvc00.main.MainVO" alias="mainVO"></typeAlias>
+      <typeAlias type="com.innerview.mvc00.main.AlgoVO" alias="algoVO"></typeAlias>
+<!-- 창희 -->
+	  <typeAlias type="com.innerview.mvc00.item.ItemVO" alias="itemVO"></typeAlias>
+      <typeAlias type="com.innerview.mvc00.item.ItemRecommendVO" alias="recommendVO"></typeAlias>
+      <typeAlias type="com.innerview.mvc00.item.ItemRecommendResultVO" alias="recommendresultVO"></typeAlias>
+      <typeAlias type="com.innerview.mvc00.zzim.ZzimVO" alias="zzimVO"></typeAlias>
+      <typeAlias type="com.innerview.mvc00.review.ReviewVO" alias="reviewVO"></typeAlias>
+      <typeAlias type="com.innerview.mvc00.cart.CartVO" alias="cartVO"></typeAlias>
+        
+<!-- 정우 -->
+	  <typeAlias type="com.innerview.mvc00.user.UserVO" alias="userVO"></typeAlias>
+<!-- 정훈 -->
+   <typeAlias type="com.innerview.mvc00.pay.PayVO" alias="payVO"></typeAlias>
+<!-- 재화 -->   
+   <typeAlias type="com.innerview.mvc00.like.LikeVO" alias="likeVO"></typeAlias>
+   
+   </typeAliases>
+
+
+
+
+   <mappers>
+   <!-- 경민 -->
+      <mapper resource="mapper/main-mapper.xml" />
+   <!-- 창희 -->
+      <mapper resource="mapper/item-mapper.xml" />
+      <mapper resource="mapper/zzim-mapper.xml" />
+      <mapper resource="mapper/cart-mapper.xml" />
+      <mapper resource="mapper/review-mapper.xml" />
+   <!-- 정우 -->
+      <mapper resource="mapper/user-mapper.xml" />
+   <!-- 정훈 -->   
+      <mapper resource="mapper/pay-mapper.xml" />
+   <!-- 재화 -->
+   		<mapper resource="mapper/like-mapper.xml" />
+   
+   </mappers>
+</configuration>
